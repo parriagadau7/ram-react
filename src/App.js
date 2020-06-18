@@ -1,26 +1,34 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import 'library-layout-react/dist/bundle.css';
+import {Layout} from "library-layout-react";
+import Home from "./home/Home";
+import CharacterContainer from "./character/CharacterContainer";
+import {Provider} from "react-redux";
+import store from "./store/Store";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const links = [{
+        name: "Character",
+        path: "/character"
+    }];
+
+    const routes = [{
+        exact: true,
+        name: Home,
+        path: "/"
+    },
+        {
+            exact: false,
+            name: CharacterContainer,
+            path: "/character"
+        }
+    ];
+    return (
+        <Provider store={store}>
+            <Layout links={links} routes={routes}/>
+        </Provider>
+    );
 }
 
 export default App;

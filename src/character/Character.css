@@ -1,0 +1,43 @@
+.card-img-overlay{
+    top:auto!important;
+    background-color: #202329;
+    opacity: 0.8;
+    color: #fff;
+    height: fit-content;
+    padding: 1rem!important;
+}
+
+.card-body {
+    background-color: #333333;
+    color: #FF9800;
+    margin-top: -1px;
+}
+
+.card-body .table {
+    color: inherit;
+}
+
+.card-body .table td {
+    font-size: 0.9rem;
+    font-weight: 200;
+}
+
+.card-body .table td:first-child {
+    color: #9E9E9E;
+    font-size: 0.7rem;
+    font-weight: 400;
+    padding: 14px 0;
+}
+
+.card-body .table tr {
+    border-bottom: 1pt solid #444444;
+}
+
+.mh-position {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    border-bottom: 0!important;
+    z-index: 1;
+}
