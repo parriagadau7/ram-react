@@ -1,28 +1,22 @@
-import React, {Component} from "react";
+import React, {useEffect} from "react";
 import Character from "./Character";
-import {connect} from "react-redux";
+import {useSelector, useDispatch} from "react-redux";
 import {listCharacters} from "../action/CharacterAction";
 
-export class CharacterContainer extends Component {
+export const CharacterContainer = () => {
 
-    componentDidMount() {
+    const characters = useSelector(state => state.characters)
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+        console.log("{ImageContainer - useEffect}");
         const valor = Math.floor(Math.random() * 25) + 1;
-        console.log("{ImageContainer - componentDidMount}");
-        this.props.listCharacters(valor);
-    }
+        dispatch(listCharacters(valor));
+    }, [dispatch]);
 
-    render() {
-        console.log("{ImageContainer - render}");
-        return (
-            <Character characters={this.props.characters}/>
-        )
-    }
+    return (
+        <Character characters={characters}/>
+    );
 }
 
-const mapStateToProps = state => {
-    return {
-        characters: state.characters
-    };
-};
-
-export default connect(mapStateToProps,{listCharacters})(CharacterContainer);
+export default CharacterContainer;
